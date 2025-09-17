@@ -1,0 +1,77 @@
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #5c4433;
+    background: #f3ece6;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+header h1 {
+    font-size: 26px;
+}
+
+.register-link {
+    font-size: 14px;
+    color: #5c4433;
+    border: 1px solid #5c4433;
+    padding: 4px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+main {
+    margin-top: 50px;
+}
+
+main h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.login-box {
+    background: #fff;
+    width: 350px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #5c4433;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}

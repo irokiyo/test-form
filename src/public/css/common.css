@@ -1,0 +1,19 @@
+body {
+    font-family: "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    color: #5c3d2e;
+}
+
+.header{
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+.header__logo{
+    font-family: "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    text-decoration: none;
+    color: black;
+}

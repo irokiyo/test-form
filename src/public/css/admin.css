@@ -1,0 +1,121 @@
+body {
+    font-family: "Hiragino Sans", sans-serif;
+    margin: 0;
+    color: #5a4a42;
+    background: #fff;
+}
+
+.header {
+    border-bottom: 1px solid #eee;
+    padding: 10px 20px;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.logout-btn {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.main {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.main__title {
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-form input,
+.search-form select {
+    padding: 6px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.search {
+    background: #8d7762;
+    color: white;
+}
+
+.btn.reset {
+    background: #e5d9cf;
+    color: #5a4a42;
+}
+
+.export-btn {
+    display: block;
+    margin: 10px auto 20px auto;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.contact-table th {
+    background: #8d7762;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.contact-table td {
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+}
+
+.detail-btn {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+}
+
+.pagination .active {
+    background: #8d7762;
+    color: #fff;
+}

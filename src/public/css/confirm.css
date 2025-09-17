@@ -1,0 +1,60 @@
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #5c4433;
+    background: #fff;
+    text-align: center;
+}
+
+header h1 {
+    margin: 20px 0;
+    font-size: 28px;
+}
+
+main h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.confirm-table {
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 700px;
+}
+
+.confirm-table th {
+    background: #b59a85;
+    color: #fff;
+    text-align: left;
+    padding: 12px;
+    width: 30%;
+}
+
+.confirm-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn.submit {
+    background: #5c4433;
+    color: #fff;
+}
+
+.btn.back {
+    background: #dcd3c7;
+    color: #5c4433;
+}

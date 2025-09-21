@@ -1,5 +1,4 @@
 
-
 @extends('layouts.app')
 
 @section('css')
@@ -10,7 +9,8 @@
 <div class="confirm">
     <h2 class="confirm__ttl">Confirm</h2>
 </div>
-<form class="form" action="/contacts" method="post">
+<form class="form" action="{{ url('/contacts') }}" method="post">
+
 @csrf
     <div class="confirm-table">
         <table class="confirm-table__inner">
@@ -55,8 +55,10 @@
             </tr>
             <tr class="confirm-table__row">
                 <th class="confirm-table__ttl">お問い合わせの種類</th>
-                <td class="confirm-table__data">{{ $contact['inquiry'] }}
-                <input type="hidden" name="inquiry" value="{{ $contact['inquiry'] }}">
+                <td class="confirm-table__data">{{ $category->content ?? ($contact['category_id'] ?? '未選択') }}
+                <input type="hidden" name="category_id" value="{{ $contact['category_id'] ?? '' }}">
+
+
                 </td>
             </tr>
             <tr class="confirm-table__row">
@@ -69,7 +71,8 @@
     </div>
     <div class="confirm__btn">
         <button type="submit" class="confirm__btn-submit">送信</button>
-        <a href="index.blade.php" class="confirm__btn-back">修正</a>
+        <a href="{{ url('/') }}" class="confirm__btn-back">修正</a>
+
         
     </div>
 </form>

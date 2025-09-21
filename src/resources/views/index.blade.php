@@ -9,7 +9,7 @@
         <h2>Contact</h2>
     </div>
     {{-- お問い合わせの入力部分--}}
-    <form action="/confirm" class="form" method="post">
+    <form action="{{ url('/confirm') }}" class="form" method="post">
     @csrf
         <div class="form__group">
             <div class="form__group-title">{{-- お名前の部分--}}
@@ -107,15 +107,14 @@
             <div class="orm__group-title">
                 <label for="" class="form__label-item">お問い合わせの種類</label>
                 <label for="" class="form__label-required">※</label>
-                <select name="inquiry" id="" class="form__select">
-                    <option value="商品のお届けについて">商品のお届けについて</option>
-                    <option value="商品の交換について">商品の交換について</option>
-                    <option value="商品トラブル">商品トラブル</option>
-                    <option value="ショップへのお問い合わせ">ショップへのお問い合わせ</option>
-                    <option value="その他">その他</option>
+                <select name="category_id">
+                    <option selected>選択してください</option>
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->content }}</option>
+                    @endforeach
                 </select>
                 <div class="form__error">
-                    @error('inquiry')
+                    @error('content')
                     {{ $message }}
                     @enderror
                 </div>
@@ -126,7 +125,8 @@
             <div class="form__group-title">
                 <label for="" class="form__label-item">お問い合わせ内容</label>
                 <label for="" class="form__label-required">※</label>
-                <textarea name="detail" id="" class="form__detail" rows="5" placeholder="お問い合わせ内容をご記載ください" value="{{ old('detail') }}"></textarea>
+                <textarea name="detail" id="" class="form__detail" rows="5" placeholder="お問い合わせ内容をご記載ください">{{ old('detail')}}</textarea>
+
                 <div class="form__error">
                     @error('detail')
                     {{ $message }}

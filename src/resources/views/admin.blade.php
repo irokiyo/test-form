@@ -6,6 +6,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gorditas:wght@400;700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+
 </head>
 <style>
     svg.w-5.h-5 {
@@ -21,7 +25,7 @@
 </style>
 
 <body>
-    <header>
+    <header >
         <h1 class="header">FashionablyLate</h1>
         <a href="{{ route('login') }}" class="header__login-link">logout</a>
     </header>
@@ -31,13 +35,14 @@
 </div>
 {{-- 検索部分--}}
 <div class="search">
-    <form action="{{ route('admin') }}" method="get" class="search__form" method="get">
+    <form action="/admin/search" method="get" class="search__form">
+    @csrf
         <input type="text" class="search-form__item-text" name="keyword" value="{{ old('keyword') }}" placeholder=" 名前やメールアドレスを入力してください">
         <select class="search-form__item-gender" name="gender">
             <option selected>選択してください</option>
-            @foreach ($contacts as $contact)
-            <option value="{{ $contact['id'] }}">{{ $contact['gender'] }}</option>
-            @endforeach
+            <option value="男性">男性</option>
+            <option value="女性">女性</option>
+            <option value="その他">その他</option>
         </select>
         <select class="create-form__item-select" name="category_id">
             @foreach ($categories as $category)
@@ -49,16 +54,11 @@
         <button type="reset" class="btn-reset">リセット</button>
     </form>
 </div>
-{{-- エクスポートボタン部分--}}
-<tr class="export">
-    <td>
+{{-- ツール部分--}}
+<div class="export">
     <button class="export-btn">エクスポート</button>
-    </td>
-    {{-- ページネーション--}}
-    <td class="pager-box">
-        {{ $contacts->onEachSide(1)->links() }}
-    </td>
-</tr>
+    
+</div>
 {{-- テーブル部分--}}
 <div class="contact">
     <table class="contact__table">
@@ -72,12 +72,7 @@
         @foreach ($contacts as $contact)
         <tr class="table___row2">
             <td class="table__data">{{ $contact['last_name'] }} {{ $contact['first_name'] }}</td>
-            <td class="table__data">
-                @if ($contact->gender == 1) 男性
-                @elseif ($contact->gender == 2) 女性
-                @elseif ($contact->gender == 3) その他
-                @endif
-            </td>
+            <td class="table__data">{{ $contact['gender'] }}</td>
             <td class="table__data">{{ $contact['email'] }}</td>
             <td class="table__data">{{ $category['content'] }}</td>
             <td class="table__data"><a href="#modal-{{ $loop->index }}" class="table-btn">詳細</a>
@@ -91,7 +86,15 @@
                         <p><strong>メール:</strong>{{ $contact['email'] }}</p>
                         <p><strong>種類:</strong>{{ $category['content'] }}</p>
                         <p><strong>内容:</strong>{{ $contact['detail'] }}</p>
-                        <button type="button">削除</button>
+                        <form class="delete-form" action="/categories/delete" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <div class="delete-form__button">
+                                <input type="hidden" name="id" value="{{ $contact['id'] }}">
+
+                                <button type="submit">削除</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 @endforeach

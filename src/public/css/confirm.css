@@ -1,60 +1,118 @@
-body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    color: #5c4433;
-    background: #fff;
+/* ===== Confirm: 見出し・レイアウト ===== */
+.confirm__ttl {
     text-align: center;
-}
-
-header h1 {
-    margin: 20px 0;
     font-size: 28px;
+    color: #5c4a3f;
+    /* 見出しブラウン */
+    margin: 32px 0 24px;
+    font-weight: 600;
 }
 
-main h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
+.form {
+    max-width: 820px;
+    margin: 0 auto 40px;
+    padding: 0 16px;
 }
 
-.confirm-table {
-    margin: 0 auto 30px;
-    border-collapse: collapse;
-    width: 80%;
-    max-width: 700px;
+/* ===== 表 ===== */
+.confirm-table__inner {
+    width: 100%;
+    border-collapse: separate;
+    /* 角丸を効かせるため separate */
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid #e5e0dc;
+    /* 外枠 */
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-.confirm-table th {
-    background: #b59a85;
+.confirm-table__row+.confirm-table__row th,
+.confirm-table__row+.confirm-table__row td {
+    border-top: 1px solid #eee7e2;
+    /* 行の区切り線 */
+}
+
+/* 左列（見出し） */
+.confirm-table__ttl {
+    width: 180px;
+    background: #bda897;
+    /* 左カラムのベージュ */
     color: #fff;
+    font-weight: 600;
     text-align: left;
-    padding: 12px;
-    width: 30%;
+    padding: 14px 18px;
+    vertical-align: middle;
+    letter-spacing: .02em;
 }
 
-.confirm-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
+/* 右列（値） */
+.confirm-table__data {
+    background: #fbf9f7;
+    /* 右カラムの淡色 */
+    color: #5c4a3f;
+    padding: 14px 18px;
+    line-height: 1.7;
+    word-break: break-word;
 }
 
-.form-actions {
+/* 長文・英数字の見やすさ */
+.confirm-table__data code,
+.confirm-table__data .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ===== ボタン ===== */
+.confirm__btn {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
+    margin-top: 24px;
 }
 
-.btn {
-    padding: 10px 30px;
+.confirm__btn-submit {
+    appearance: none;
     border: none;
+    background: #7c6355;
+    /* メインブラウン */
+    color: #fff;
+    padding: 10px 28px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
 }
 
-.btn.submit {
-    background: #5c4433;
-    color: #fff;
+.confirm__btn-submit:hover {
+    opacity: .92;
 }
 
-.btn.back {
-    background: #dcd3c7;
-    color: #5c4433;
+.confirm__btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #7c6355;
+    color: #7c6355;
+    text-decoration: none;
+    background: #fff;
+    font-size: 14px;
+}
+
+.confirm__btn-back:hover {
+    background: #f6f2ef;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width:640px) {
+    .confirm__ttl {
+        font-size: 24px;
+    }
+
+    .confirm-table__ttl {
+        width: 36%;
+        padding: 12px 12px;
+    }
+
+    .confirm-table__data {
+        padding: 12px;
+    }
 }

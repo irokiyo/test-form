@@ -48,17 +48,4 @@ class UserController extends Controller
         auth()->login($user);
         return redirect('/admin');
     }
-    public function admin()
-{
-    $contacts = Contact::with('category')->get();
-    $categories = Category::all();
-    $contacts = Contact::Paginate(7);
-    return view('admin', compact('contacts','categories'));
-}
-    public function search(ContactRequest $request)
-        {
-            $contacts =Contact::with('category')->categorySearch($request->category_id)->keywordSearch($request->keyword)->get();
-            $categories = Category::all();
-            return view('index', compact('contacts', 'categories'));
-        }
 }

@@ -83,7 +83,10 @@ header {
     border-radius: 4px;
     cursor: pointer;
 }
-
+.btn-reset-back{
+    color: white;
+    text-decoration: none;
+}
 /* エクスポートボタン */
 .export {
     padding: 0 40px 20px;

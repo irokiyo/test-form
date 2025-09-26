@@ -36,11 +36,23 @@ class Contact extends Model
     {
         if (!empty($keyword)){
             $query->where('last_name', 'like', '%' . $keyword . '%')
-            ->where('first_name', 'like', '%' . $keyword . '%')
-            ->where('email', 'like', '%' . $keyword . '%')
-            ->where('gender', 'like', '%' . $keyword . '%')
-            ->where('created_at', 'like', '%' . $keyword . '%');
+            ->orwhere('first_name', 'like', '%' . $keyword . '%')
+            ->orwhere('email', 'like', '%' . $keyword . '%');
+        }
+        return $query;
+
+    }
+        public function scopeGenderFilter($query, $gender)
+    {
+            if (!empty($gender)){
+            $query->where('gender',$gender);
         }
         return $query;
     }
+        public function scopeCategoryFilter($query, $category_id)
+        {
+            if (!empty($category_id)){
+
+            }
+        }
 }

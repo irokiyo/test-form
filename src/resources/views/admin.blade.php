@@ -39,25 +39,28 @@
     @csrf
         <input type="text" class="search-form__item-text" name="keyword" value="{{ old('keyword') }}" placeholder=" 名前やメールアドレスを入力してください">
         <select class="search-form__item-gender" name="gender">
-            <option selected>選択してください</option>
+            <option value="">選択してください</option>
             <option value="男性">男性</option>
             <option value="女性">女性</option>
             <option value="その他">その他</option>
         </select>
         <select class="create-form__item-select" name="category_id">
+            <option value="">選択してください</option>
             @foreach ($categories as $category)
             <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
             @endforeach
         </select>
-        <input type="date" class="date">
+        <input type="date" class="date" name="created_at">
         <button type="submit" class="btn-search">検索</button>
-        <button type="reset" class="btn-reset">リセット</button>
+        <button type="reset" class="btn-reset"><a href="{{ route('admin') }}" class="btn-reset-back">リセット</button></a>
+
+
+
     </form>
 </div>
 {{-- ツール部分--}}
 <div class="export">
     <button class="export-btn">エクスポート</button>
-    
 </div>
 {{-- テーブル部分--}}
 <div class="contact">

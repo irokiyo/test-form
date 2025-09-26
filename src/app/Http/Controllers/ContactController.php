@@ -34,7 +34,7 @@ class ContactController extends Controller
     //検索
     public function search(Request $request){
 
-        $contacts = Contact::with('category')->CategorySearch($request->category_id)->KeywordSearch($request->keyword)->genderFilter($request->gender)->CategoryFilter($request->keyword)->get();
+        $contacts = Contact::with('category')->CategorySearch($request->category_id)->KeywordSearch($request->keyword)->genderFilter($request->gender)->CategoryFilter($request->category_content)->get();
         $categories = Category::all();
         return view('admin', compact('contacts', 'categories'));
     }

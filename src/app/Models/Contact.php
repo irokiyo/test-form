@@ -49,10 +49,13 @@ class Contact extends Model
         }
         return $query;
     }
-        public function scopeCategoryFilter($query, $category_id)
+        public function scopeCategoryFilter($query, $categoryContent)
         {
-            if (!empty($category_id)){
-
+            if (!empty($categoryContent)){ //$query->where('カラム名', '値');
+                $query->whereHas('category', function ($q) use ($categoryContent) {
+            $q->where('content', $categoryContent);
+                });
             }
+            return $query;
         }
 }

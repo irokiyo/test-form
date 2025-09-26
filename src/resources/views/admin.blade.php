@@ -47,7 +47,7 @@
         <select class="create-form__item-select" name="category_id">
             <option value="">選択してください</option>
             @foreach ($categories as $category)
-            <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+            <option value="{{ $category['id'] }}">{{$category->content}}</option>
             @endforeach
         </select>
         <input type="date" class="date" name="created_at">
@@ -77,7 +77,7 @@
             <td class="table__data">{{ $contact['last_name'] }} {{ $contact['first_name'] }}</td>
             <td class="table__data">{{ $contact['gender'] }}</td>
             <td class="table__data">{{ $contact['email'] }}</td>
-            <td class="table__data">{{ $category['content'] }}</td>
+            <td class="table__data">{{ $contact->category->content }}</td>
             <td class="table__data"><a href="#modal-{{ $loop->index }}" class="table-btn">詳細</a>
             {{-- モーダル--}}
                 <div id="modal-{{ $loop->index }}" class="modal">

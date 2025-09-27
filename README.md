@@ -34,7 +34,7 @@ PHP 8.1 (Docker)
 
 ## ER図
 public/images/test.drawio.pngに記載しています
-![Alt text](//src/public/images/test.drawio.png)
+![Alt text](//src/public/images//スクリーンショット%202025-09-28%200.17.29.png)
 
 ## URL
 開発環境：http://localhost/

@@ -33,8 +33,16 @@ class ContactController extends Controller
     }
     //検索
     public function search(Request $request){
+        dd([
+  'keyword'   => Contact::KeywordSearch($request->keyword)->count(),
+  'gender'    => Contact::GenderFilter($request->gender)->count(),
+  'category'  => Contact::CategoryFilter($request->category_content)->count(),
+  'date'      => Contact::DateFilter($request->date)->count(),
+]);
 
-        $contacts = Contact::with('category')->CategorySearch($request->category_id)->KeywordSearch($request->keyword)->genderFilter($request->gender)->CategoryFilter($request->category_content)->get();
+
+
+        $contacts = Contact::with('category')->CategorySearch($request->category_id)->KeywordSearch($request->keyword)->genderFilter($request->gender)->CategoryFilter($request->category_content)->DateFilter($request->date)->get();
         $categories = Category::all();
         return view('admin', compact('contacts', 'categories'));
     }

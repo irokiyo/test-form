@@ -50,7 +50,8 @@
             <option value="{{ $category['id'] }}">{{$category->content}}</option>
             @endforeach
         </select>
-        <input type="date" class="date" name="created_at">
+        @dump($contacts->count())
+        <input type="date" class="date" name="date">
         <button type="submit" class="btn-search">検索</button>
         <button type="reset" class="btn-reset"><a href="{{ route('admin') }}" class="btn-reset-back">リセット</button></a>
 

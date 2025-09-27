@@ -58,4 +58,10 @@ class Contact extends Model
             }
             return $query;
         }
+        public function scopeDateFilter($query, $date){
+            if (!empty($date)){
+                $query->whereDate('created_at', '$date');
+            }
+            return $query;
+        }
 }
